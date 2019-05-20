@@ -1,0 +1,28 @@
+import React from 'react';
+import { connect } from "react-redux"
+import { bindActionCreators } from 'redux';
+import ContactTable from "../../containers/contact-table/contact-table"
+import './styles.css';
+
+class Contacts extends React.Component {
+    render() {
+        const { contacts } = this.props
+        return (
+            <div className="Contacts" >
+                <ContactTable contacts={contacts} />
+            </div>
+        );
+    }
+}
+const mapStateToProps = (state) => ({
+    contacts: state.contacts
+});
+const mapDispatchToProps = dispatch => bindActionCreators(
+    {
+    },
+    dispatch
+);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Contacts);

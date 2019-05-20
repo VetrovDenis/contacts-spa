@@ -2,7 +2,7 @@
 
  
 
-Develop SPA which should manage contacts. User can work with:
+SPA which should manage contacts. User can work with:
 
 - list of contacts (better with pagination)
 
@@ -18,6 +18,6 @@ Develop SPA which should manage contacts. User can work with:
 
  
 
-Front-end part should be developed as SPA with ES6, React and Redux.
+Front-end part is developed as SPA with ES6, React and Redux.
 
-Back-end API should be mocked. (json-server)
+Back-end API is mocked. (json-server)

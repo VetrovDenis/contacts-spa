@@ -31,7 +31,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "redux-devtools": "^3.5.0"
-  }
+  "devDependencies": {}
 }
