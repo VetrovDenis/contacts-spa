@@ -11,7 +11,7 @@ class Contacts extends React.Component {
         return (
             <div className="Contacts" >
                 <ContactTable contacts={contacts} />
-                <FloatingButton style={{ right: 10, bottom: 10 }} handler={() => { }} />
+                <FloatingButton style={{ right: 10, bottom: 10 }} onClick={() => { }} />
             </div>
         );
     }
