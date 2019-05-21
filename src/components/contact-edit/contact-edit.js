@@ -5,11 +5,11 @@ import './styles.css';
 //containers
 import FloatingButton from "../../containers/floating-button/floating-button"
 //redux
-import { changeContact } from "../../reducers/manage-contact"
+import { changeContact, saveNewContact } from "../../reducers/manage-contact"
 
 class ContactEdit extends React.Component {
     state = {
-        id: "",
+        id: null,
         name: "",
         surname: "",
         phone_number: "",
@@ -33,11 +33,11 @@ class ContactEdit extends React.Component {
         }
     }
     submitForm = () => {
-        const { id, name, surname, phone_number, call_history } = this.state
+        const { id, name, surname, phone_number, call_history, edit_mode } = this.state
         let changedUser = {
             id, name, surname, phone_number, call_history
         }
-        this.props.changeContact(changedUser)
+        edit_mode ? this.props.changeContact(changedUser) : this.props.saveNewContact(changedUser)
     }
     render() {
         const { name, surname, phone_number, call_history, edit_mode } = this.state
@@ -103,7 +103,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = dispatch => bindActionCreators(
     {
-        changeContact
+        changeContact,
+        saveNewContact
     },
     dispatch
 );

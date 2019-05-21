@@ -1,5 +1,4 @@
 import React from 'react';
-import { default_image_url } from "../../constants/constants"
 import { NavLink } from 'react-router-dom'
 import './styles.css';
 

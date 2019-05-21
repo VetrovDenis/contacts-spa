@@ -1,5 +1,4 @@
-export const CHANGE_CONTACT = './manage-contact/CHANGE_CONTACT';
-export const LOAD_CONTACTS = './manage-contact/LOAD_CONTACTS';
+import { CHANGE_CONTACT, LOAD_CONTACTS, ADD_NEW_CONTACT } from "../constants/action-types"
 
 const initialState = [
     {
@@ -30,6 +29,8 @@ export default (state = initialState, action) => {
             return action.data
         case CHANGE_CONTACT:
             return action.contacts
+        case ADD_NEW_CONTACT:
+            return action.contacts
         default:
             return state;
     }
@@ -41,6 +42,15 @@ export const changeContact = (data) => async (dispatch, getState) => {
     contacts[editedContactIndex] = data
     return {
         type: CHANGE_CONTACT,
+        contacts
+    }
+}
+export const saveNewContact = (data) => async (dispatch, getState) => {
+    let { contacts } = getState();
+    data.id = contacts.length + 1;
+    contacts.push(data)
+    return {
+        type: ADD_NEW_CONTACT,
         contacts
     }
 }
