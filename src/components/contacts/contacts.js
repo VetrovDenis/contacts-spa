@@ -6,7 +6,7 @@ import FloatingButton from "../../containers/floating-button/floating-button"
 import Pagination from "../../containers/contacts-pagination/contacts-pagination"
 import './styles.css';
 
-const contacts_per_page = 1;
+const contacts_per_page = 10;
 
 class Contacts extends React.Component {
     state = {
