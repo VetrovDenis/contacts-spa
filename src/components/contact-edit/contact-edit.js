@@ -58,7 +58,7 @@ class ContactEdit extends React.Component {
                 />
                 {edit_mode &&
                     <FloatingButton
-                        style={{ right: 10, bottom: 10 }}
+                        style={{ right: 10, top: 10 }}
                         title="Delete"
                         onClick={() => { deleteContact(id) }}
                         to={`/`}
@@ -79,27 +79,29 @@ class ContactEdit extends React.Component {
                             <input type="text" name="phone_number" value={phone_number} onChange={this.handleChange} />
                         </div>
                     </div>
-                    <div className="ContactEdit-call-history">
-                        <div className="Call-history-line Call-history-header">
-                            <p>Name</p>
-                            <p>Phone</p>
-                            <p>Date</p>
+                    {edit_mode &&
+                        <div className="ContactEdit-call-history">
+                            <div className="Call-history-line Call-history-header">
+                                <p>Name</p>
+                                <p>Phone</p>
+                                <p>Date</p>
+                            </div>
+                            {call_history.length > 0 ? call_history.map((call, index) => {
+                                const { name, phone_number, date } = call
+                                return (
+                                    <div className="Call-history-line">
+                                        <p>{name}</p>
+                                        <p>{phone_number}</p>
+                                        <p>{date}</p>
+                                    </div>
+                                )
+                            })
+                                : <h4>History is empty</h4>
+                            }
                         </div>
-                        {call_history.length > 0 ? call_history.map((call, index) => {
-                            const { name, phone_number, date } = call
-                            return (
-                                <div className="Call-history-line">
-                                    <p>{name}</p>
-                                    <p>{phone_number}</p>
-                                    <p>{date}</p>
-                                </div>
-                            )
-                        })
-                            : <h4>History is empty</h4>
-                        }
-                    </div>
+                    }
                     <FloatingButton
-                        style={{ left: 10, bottom: 10 }}
+                        style={{ right: 10, bottom: 10 }}
                         title="Save"
                         onClick={() => { this.submitForm(id) }}
                         to={`/`}
