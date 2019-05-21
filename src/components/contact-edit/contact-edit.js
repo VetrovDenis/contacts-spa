@@ -1,18 +1,31 @@
 import React from 'react';
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux';
-import { default_image_url } from "../../constants/constants"
-import logo from '../../assets/images/logo.svg';
-import FloatingButton from "../../containers/floating-button/floating-button"
 import './styles.css';
-//components
+//containers
+import FloatingButton from "../../containers/floating-button/floating-button"
+//redux
+import { changeContact } from "../../reducers/manage-contact"
 
 class ContactEdit extends React.Component {
     state = {
+        id: "",
         name: "",
         surname: "",
-        phone: "",
-        call_history: []
+        phone_number: "",
+        call_history: [],
+        edit_mode: false
+    }
+    componentWillMount = () => {
+        const { query_params, contacts } = this.props
+        if (query_params.id) {
+            let contactToEdit = contacts.find(x => x.id === Number(query_params.id))
+            const { id, name, surname, phone_number, call_history } = contactToEdit
+            this.setState({
+                edit_mode: true,
+                id, name, surname, phone_number, call_history
+            })
+        }
     }
     handleChange = (event) => {
         if (event.target.value.length > 0) {
@@ -20,32 +33,38 @@ class ContactEdit extends React.Component {
         }
     }
     submitForm = () => {
-        const { name, surname, phone } = this.state
-        console.log(this.state)
+        const { id, name, surname, phone_number, call_history } = this.state
+        let changedUser = {
+            id, name, surname, phone_number, call_history
+        }
+        this.props.changeContact(changedUser)
     }
     render() {
-        const { name, surname, phone, image_url, call_history } = this.state
+        const { name, surname, phone_number, call_history, edit_mode } = this.state
+        const { query_params } = this.props
         return (
             <div className="ContactEdit">
-                <FloatingButton
-                    style={{ left: 10, top: 10 }}
-                    title="Delete"
-                    onClick={() => { console.log("deleted") }}
-                    to={`/`}
-                />
+                {edit_mode &&
+                    <FloatingButton
+                        style={{ right: 10, top: 10 }}
+                        title="Delete"
+                        onClick={() => { console.log("deleted") }}
+                        to={`/`}
+                    />
+                }
                 <form >
                     <div className="ContactEdit-inputs">
                         <div>
                             <p>Name:</p>
-                            <input type="text" name="name" value={name} disabled={false} onChange={this.handleChange} />
+                            <input type="text" name="name" value={name} onChange={this.handleChange} />
                         </div>
                         <div>
                             <p>Surname:</p>
-                            <input type="text" name="surname" value={surname} disabled={true} onChange={this.handleChange} />
+                            <input type="text" name="surname" value={surname} onChange={this.handleChange} />
                         </div>
                         <div>
                             <p>Phone:</p>
-                            <input type="text" name="phone" value={phone} disabled={true} onChange={this.handleChange} />
+                            <input type="text" name="phone_number" value={phone_number} onChange={this.handleChange} />
                         </div>
                     </div>
                     {call_history.length > 0 &&
@@ -56,11 +75,11 @@ class ContactEdit extends React.Component {
                                 <p>Date:</p>
                             </div>
                             {call_history.map((call, index) => {
-                                const { name, phone, date } = call
+                                const { name, phone_number, date } = call
                                 return (
                                     <div className="Call-history-line">
                                         <p>{name}</p>
-                                        <p>{phone}</p>
+                                        <p>{phone_number}</p>
                                         <p>{date}</p>
                                     </div>
                                 )
@@ -77,13 +96,14 @@ class ContactEdit extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(ownProps)
     return {
-        contacts: state.contacts
+        contacts: state.contacts,
+        query_params: ownProps.match.params
     }
 };
 const mapDispatchToProps = dispatch => bindActionCreators(
     {
+        changeContact
     },
     dispatch
 );

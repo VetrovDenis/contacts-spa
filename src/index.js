@@ -13,63 +13,6 @@ import App from './components/main/main'
 import ContactEdit from './components/contact-edit/contact-edit'
 
 const initialState = {
-    contacts: [
-        {
-            id: 1,
-            name: "Denis",
-            surname: "Vetrov",
-            phone_number: "+38099999999",
-            call_history: []
-        },
-        {
-            id: 2,
-            name: "Steve",
-            surname: "Jobs",
-            image_url: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Steve_Jobs_Headshot_2010-CROP.jpg",
-            phone_number: "+38099999999",
-            call_history: []
-        },
-        {
-            id: 3,
-            name: "Harrison",
-            surname: "Ford",
-            image_url: "https://static.tvtropes.org/pmwiki/pub/images/harrison_ford_5989.jpg",
-            phone_number: "+38099999999",
-            call_history: []
-        },
-        {
-            id: 3,
-            name: "Harrison",
-            surname: "Ford",
-            image_url: "https://static.tvtropes.org/pmwiki/pub/images/harrison_ford_5989.jpg",
-            phone_number: "+38099999999",
-            call_history: []
-        },
-        {
-            id: 3,
-            name: "Harrison",
-            surname: "Ford",
-            image_url: "https://static.tvtropes.org/pmwiki/pub/images/harrison_ford_5989.jpg",
-            phone_number: "+38099999999",
-            call_history: []
-        },
-        {
-            id: 3,
-            name: "Harrison",
-            surname: "Ford",
-            image_url: "https://static.tvtropes.org/pmwiki/pub/images/harrison_ford_5989.jpg",
-            phone_number: "+38099999999",
-            call_history: []
-        },
-        {
-            id: 3,
-            name: "Harrison",
-            surname: "Ford",
-            image_url: "https://static.tvtropes.org/pmwiki/pub/images/harrison_ford_5989.jpg",
-            phone_number: "+38099999999",
-            call_history: []
-        }
-    ]
 }
 
 const middlewareEnhancer = applyMiddleware(loggerMiddleware, thunkMiddleware)
