@@ -1,6 +1,13 @@
 import { combineReducers } from 'redux'
+import { persistCombineReducers } from 'redux-persist'
 import contacts from "./manage-contact"
+import storage from 'redux-persist/lib/storage'
 
-export default combineReducers({
+const persistConfig = {
+    key: 'root',
+    storage,
+}
+
+export default persistCombineReducers(persistConfig, {
     contacts
 })
