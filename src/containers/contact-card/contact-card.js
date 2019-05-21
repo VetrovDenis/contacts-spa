@@ -4,7 +4,7 @@ import './styles.css';
 
 class ContactTable extends React.Component {
     render() {
-        const { id, name, surname, phone_numbers, image_url } = this.props.contact
+        const { id, name, surname, phone_number, image_url } = this.props.contact
         return (
             <div className="ContactCard" >
                 <div className="ContactCard-image" style={{
@@ -13,6 +13,7 @@ class ContactTable extends React.Component {
                 }}>
                 </div>
                 <p>{name} {surname}</p>
+                <p>{phone_number}</p>
             </div>
         );
     }

@@ -1,8 +1,9 @@
 .ContactCard {
     display: flex;
     min-height: 300px;
-    min-width: 20%;
-    max-width: 50%;
+    width: 15%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
     padding: 5px;
     align-items: center;
     justify-content: center;
@@ -23,7 +24,7 @@
     align-items: center;
     justify-content: center;
     width: 80%;
-    border-radius: 1000px;
+    border-radius: 100%;
 }
 
 .ContactCard-image img {

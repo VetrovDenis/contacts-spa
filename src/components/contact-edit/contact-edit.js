@@ -7,7 +7,7 @@ class ContactEdit extends React.Component {
     state = {
         name: "",
         surname: "",
-        phones: []
+        phone: ""
     }
     handleChange = (event) => {
         if (event.target.value.length > 0) {
@@ -18,24 +18,24 @@ class ContactEdit extends React.Component {
         const { phones } = this.state
         return (
             <div className="ContactEdit">
-                <form>
-                    <label>
-                        Name:
-                        <input type="text" name="name" disabled={true} />
-                    </label>
-                    <label>
-                        Surname:
-                        <input type="text" name="surname" disabled={true} />
-                    </label>
-                    {phones.map((phone, index) => {
-                        return (
-                            <label>
-                                Phone № {index + 1}:
-                                <input type="number" name="surname" disabled={true} />
-                            </label>
-                        )
-                    })}
-                    <input type="submit" value="Submit" />
+                <form >
+                    <div className="ContactEdit-inputs">
+                        <div>
+                            <p>Name:</p>
+                            <input type="text" name="name" disabled={true} />
+                        </div>
+                        <div>
+                            <p>Surname:</p>
+                            <input type="text" name="surname" disabled={true} />
+                        </div>
+                        <div>
+                            <p>Phone:</p>
+                            <input type="text" name="phone" disabled={true} />
+                        </div>
+                    </div>
+                    <div className="ContactEdit-submit" onClick={() => { }}>
+                        Submit
+                        </div>
                 </form>
             </div>
         );

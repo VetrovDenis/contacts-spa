@@ -18,7 +18,7 @@ const initialState = {
             id: 1,
             name: "Denis",
             surname: "Vetrov",
-            phone_numbers: ["+38099999999"],
+            phone_number: "+38099999999",
             call_history: []
         },
         {
@@ -26,7 +26,7 @@ const initialState = {
             name: "Steve",
             surname: "Jobs",
             image_url: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Steve_Jobs_Headshot_2010-CROP.jpg",
-            phone_numbers: ["+38099999999"],
+            phone_number: "+38099999999",
             call_history: []
         },
         {
@@ -34,7 +34,7 @@ const initialState = {
             name: "Harrison",
             surname: "Ford",
             image_url: "https://static.tvtropes.org/pmwiki/pub/images/harrison_ford_5989.jpg",
-            phone_numbers: ["+38099999999"],
+            phone_number: "+38099999999",
             call_history: []
         },
         {
@@ -42,7 +42,7 @@ const initialState = {
             name: "Harrison",
             surname: "Ford",
             image_url: "https://static.tvtropes.org/pmwiki/pub/images/harrison_ford_5989.jpg",
-            phone_numbers: ["+38099999999"],
+            phone_number: "+38099999999",
             call_history: []
         },
         {
@@ -50,7 +50,7 @@ const initialState = {
             name: "Harrison",
             surname: "Ford",
             image_url: "https://static.tvtropes.org/pmwiki/pub/images/harrison_ford_5989.jpg",
-            phone_numbers: ["+38099999999"],
+            phone_number: "+38099999999",
             call_history: []
         },
         {
@@ -58,7 +58,7 @@ const initialState = {
             name: "Harrison",
             surname: "Ford",
             image_url: "https://static.tvtropes.org/pmwiki/pub/images/harrison_ford_5989.jpg",
-            phone_numbers: ["+38099999999"],
+            phone_number: "+38099999999",
             call_history: []
         },
         {
@@ -66,7 +66,7 @@ const initialState = {
             name: "Harrison",
             surname: "Ford",
             image_url: "https://static.tvtropes.org/pmwiki/pub/images/harrison_ford_5989.jpg",
-            phone_numbers: ["+38099999999"],
+            phone_number: "+38099999999",
             call_history: []
         }
     ]
