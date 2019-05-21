@@ -45,24 +45,6 @@
     cursor: pointer;
 }
 
-.ContactEdit-image-container {
-    flex: 1;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 10px;
-}
-
-.ContactEdit-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
-}
 
 .ContactEdit-call-history {
     padding: 10px;

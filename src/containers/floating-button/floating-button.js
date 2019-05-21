@@ -4,12 +4,12 @@ import './styles.css';
 
 class FloatingButton extends React.Component {
     render() {
+        const { title } = this.props
         return (
             <NavLink
-                to={`/contact-edit`}
                 {...this.props}
                 className="FloatingButton" >
-                <p>New</p>
+                <p>{title}</p>
             </NavLink>
         );
     }

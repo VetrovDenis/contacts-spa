@@ -11,7 +11,11 @@ class Contacts extends React.Component {
         return (
             <div className="Contacts" >
                 <ContactTable contacts={contacts} />
-                <FloatingButton style={{ right: 10, bottom: 10 }} onClick={() => { }} />
+                <FloatingButton
+                    style={{ right: 10, bottom: 10 }}
+                    title="Add"
+                    to={`/contact-edit`}
+                />
             </div>
         );
     }

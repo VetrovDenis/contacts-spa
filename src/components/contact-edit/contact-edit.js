@@ -1,6 +1,9 @@
 import React from 'react';
+import { connect } from "react-redux"
+import { bindActionCreators } from 'redux';
 import { default_image_url } from "../../constants/constants"
 import logo from '../../assets/images/logo.svg';
+import FloatingButton from "../../containers/floating-button/floating-button"
 import './styles.css';
 //components
 
@@ -9,31 +12,28 @@ class ContactEdit extends React.Component {
         name: "",
         surname: "",
         phone: "",
-        image_url: "",
         call_history: []
     }
     handleChange = (event) => {
-        console.log(event.target.value)
         if (event.target.value.length > 0) {
             this.setState({ [event.target.name]: event.target.value })
         }
     }
     submitForm = () => {
-        const { name, surname, phone, image_url } = this.state
+        const { name, surname, phone } = this.state
         console.log(this.state)
     }
     render() {
         const { name, surname, phone, image_url, call_history } = this.state
         return (
             <div className="ContactEdit">
+                <FloatingButton
+                    style={{ left: 10, top: 10 }}
+                    title="Delete"
+                    onClick={() => { console.log("deleted") }}
+                    to={`/`}
+                />
                 <form >
-                    <div className="ContactEdit-image-container">
-                        <div className="ContactEdit-image" style={{
-                            backgroundImage: `url(${image_url ? image_url : default_image_url})`,
-                            backgroundSize: "cover"
-                        }} />
-                        <input type="file" name="image_url" accept="image/*" onChange={this.handleChange}></input>
-                    </div>
                     <div className="ContactEdit-inputs">
                         <div>
                             <p>Name:</p>
@@ -76,4 +76,18 @@ class ContactEdit extends React.Component {
     }
 }
 
-export default ContactEdit;
+const mapStateToProps = (state, ownProps) => {
+    console.log(ownProps)
+    return {
+        contacts: state.contacts
+    }
+};
+const mapDispatchToProps = dispatch => bindActionCreators(
+    {
+    },
+    dispatch
+);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ContactEdit);
