@@ -1,4 +1,4 @@
-import { CHANGE_CONTACT, LOAD_CONTACTS, ADD_NEW_CONTACT } from "../constants/action-types"
+import { CHANGE_CONTACT, LOAD_CONTACTS, ADD_NEW_CONTACT, DELETE_CONTACT } from "../constants/action-types"
 
 const initialState = [
     {
@@ -6,7 +6,13 @@ const initialState = [
         name: "Denis",
         surname: "Vetrov",
         phone_number: "+38099999999",
-        call_history: []
+        call_history: [
+            {
+                date: "20 05 2019",
+                phone_number: "+38099999999",
+                name: "Ford"
+            }
+        ]
     },
     {
         id: 2,
@@ -31,6 +37,8 @@ export default (state = initialState, action) => {
             return action.contacts
         case ADD_NEW_CONTACT:
             return action.contacts
+        case DELETE_CONTACT:
+            return action.contacts
         default:
             return state;
     }
@@ -51,6 +59,16 @@ export const saveNewContact = (data) => async (dispatch, getState) => {
     contacts.push(data)
     return {
         type: ADD_NEW_CONTACT,
+        contacts
+    }
+}
+
+export const deleteContact = (id) => async (dispatch, getState) => {
+    let { contacts } = getState();
+    let contactId = contacts.findIndex(x => x.id === id)
+    contacts.splice(contactId, 1);
+    return {
+        type: DELETE_CONTACT,
         contacts
     }
 }

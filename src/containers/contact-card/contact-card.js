@@ -7,7 +7,7 @@ class ContactTable extends React.Component {
         const { id, name, surname, phone_number } = this.props.contact
         return (
             <NavLink
-                to={`/contact-edit/` + id}
+                to={`/contact-edit/${id}`}
                 className="ContactCard" >
                 <p>{name} {surname}</p>
                 <p>{phone_number}</p>
