@@ -1,61 +1,15 @@
 
-// call example
-// import { httpPost, httpGet } from "../../../services/http";
-//
-// ---- GET ----
-// let promise = httpGet(
-//     urls.example_url,
-// );
-// promise.then(
-//     result => {
-//          do smt with your good response
-//     },
-//     error => {
-//          do smt with your error
-//     }
-// );
-//
-//
-// ---- POST ----
-// let body = JSON.stringify({
-//     title: "http service"
-// });
-// let promise = httpPost(
-//     urls.example_url,
-//     body
-// );
-// promise.then(
-//     result => {
-//          do smt with your good response
-//     },
-//     error => {
-//          do smt with your error
-//     }
-// );
-
-export const httpGet = (url) => {
+export const httpRequest = (method, url, body) => {
     const defaultHeaders = {
         "Content-Type": "application/json"
     };
     const OPTIONS = {
-        method: "GET",
+        method,
         headers: { ...defaultHeaders }
     };
     return sendRequest(url, OPTIONS);
 };
 
-
-export const httpPost = (url, body) => {
-    const defaultHeaders = {
-        "Content-Type": "application/json"
-    };
-    const OPTIONS = {
-        method: "POST",
-        headers: { ...defaultHeaders },
-        body: body
-    };
-    return sendRequest(url, OPTIONS);
-};
 
 function sendRequest(url, OPTIONS) {
     return new Promise((resolve, reject) => {
