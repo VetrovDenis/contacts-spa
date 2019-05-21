@@ -4,13 +4,20 @@ import './styles.css';
 
 class FloatingButton extends React.Component {
     render() {
-        const { title } = this.props
+        const { title, disabled, style } = this.props
         return (
-            <NavLink
-                {...this.props}
-                className="FloatingButton" >
-                <p>{title}</p>
-            </NavLink>
+            disabled ?
+                <div
+                    style={style}
+                    className="FloatingButton Disabled" >
+                    <p>{title}</p>
+                </div>
+                :
+                <NavLink
+                    {...this.props}
+                    className="FloatingButton" >
+                    <p>{title}</p>
+                </NavLink>
         );
     }
 }

@@ -5,7 +5,7 @@ import './styles.css';
 //containers
 import FloatingButton from "../../containers/floating-button/floating-button"
 //redux
-import { changeContact, saveNewContact, deleteContact } from "../../reducers/manage-contact"
+import { changeContactRequest, saveNewContactRequest, deleteContactRequest } from "../../reducers/manage-contact"
 
 class ContactEdit extends React.Component {
     state = {
@@ -40,15 +40,17 @@ class ContactEdit extends React.Component {
         }
     }
     submitForm = () => {
-        const { id, name, surname, phone_number, call_history, edit_mode } = this.state
-        let changedUser = {
-            id, name, surname, phone_number, call_history
+        if (this.refs.form.checkValidity()) {
+            const { id, name, surname, phone_number, call_history, edit_mode } = this.state
+            let changedUser = {
+                id, name, surname, phone_number, call_history
+            }
+            edit_mode ? this.props.changeContactRequest(changedUser) : this.props.saveNewContactRequest(changedUser)
         }
-        edit_mode ? this.props.changeContact(changedUser) : this.props.saveNewContact(changedUser)
     }
     render() {
         const { id, name, surname, phone_number, call_history, edit_mode } = this.state
-        const { deleteContact } = this.props
+        const { deleteContactRequest } = this.props
         return (
             <div className="ContactEdit">
                 <FloatingButton
@@ -60,15 +62,15 @@ class ContactEdit extends React.Component {
                     <FloatingButton
                         style={{ right: 10, top: 10 }}
                         title="Delete"
-                        onClick={() => { deleteContact(id) }}
+                        onClick={() => { deleteContactRequest(id) }}
                         to={`/`}
                     />
                 }
-                <form >
+                <form ref="form">
                     <div className="ContactEdit-inputs">
                         <div>
                             <p>Name:</p>
-                            <input type="text" name="name" value={name} onChange={this.handleChange} />
+                            <input type="text" name="name" value={name} autoFocus required onChange={this.handleChange} />
                         </div>
                         <div>
                             <p>Surname:</p>
@@ -76,7 +78,7 @@ class ContactEdit extends React.Component {
                         </div>
                         <div>
                             <p>Phone:</p>
-                            <input type="text" name="phone_number" value={phone_number} onChange={this.handleChange} />
+                            <input ref="phone_input" placeholder="-- --- --- -- --" type="number" name="phone_number" value={phone_number} required onChange={this.handleChange} />
                         </div>
                     </div>
                     {edit_mode &&
@@ -86,7 +88,7 @@ class ContactEdit extends React.Component {
                                 <p>Phone</p>
                                 <p>Date</p>
                             </div>
-                            {call_history.length > 0 ? call_history.map((call, index) => {
+                            {call_history && call_history.length > 0 ? call_history.map((call, index) => {
                                 const { name, phone_number, date } = call
                                 return (
                                     <div key={index} className="Call-history-line">
@@ -101,6 +103,7 @@ class ContactEdit extends React.Component {
                         </div>
                     }
                     <FloatingButton
+                        disabled={!(name && name.length > 0 && this.refs.phone_input.checkValidity())}
                         style={{ right: 10, bottom: 10 }}
                         title="Save"
                         onClick={() => { this.submitForm(id) }}
@@ -119,9 +122,9 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = dispatch => bindActionCreators(
     {
-        changeContact,
-        saveNewContact,
-        deleteContact
+        changeContactRequest,
+        saveNewContactRequest,
+        deleteContactRequest
     },
     dispatch
 );

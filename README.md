@@ -1,11 +1,5 @@
-# Start JSON Server
-
-json-server --watch db.json
-
 
 #  Task
-
- 
 
 SPA which should manage contacts. User can work with:
 
@@ -26,3 +20,8 @@ SPA which should manage contacts. User can work with:
 Front-end part is developed as SPA with ES6, React and Redux.
 
 Back-end API is mocked. (json-server)
+
+# Start JSON Server
+
+json-server --watch db.json
+

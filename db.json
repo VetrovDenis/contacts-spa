@@ -4,11 +4,11 @@
       "id": 1,
       "name": "Denis",
       "surname": "Vetrov",
-      "phone_number": "+38099999999",
+      "phone_number": "38099999999",
       "call_history": [
         {
           "date": "20 05 2019",
-          "phone_number": "+38099999999",
+          "phone_number": "38099999999",
           "name": "Ford"
         }
       ]
@@ -17,11 +17,11 @@
       "id": 2,
       "name": "Max",
       "surname": "Jameson",
-      "phone_number": "+38099999999",
+      "phone_number": "38099999999",
       "call_history": [
         {
           "date": "20 05 2019",
-          "phone_number": "+38099999999",
+          "phone_number": "38099999999",
           "name": "Denis"
         }
       ]
@@ -30,31 +30,31 @@
       "id": 3,
       "name": "A lof of",
       "surname": "Call history",
-      "phone_number": "+38099999999",
+      "phone_number": "38099999999",
       "call_history": [
         {
           "date": "20 05 2019",
-          "phone_number": "+38099999999",
+          "phone_number": "38099999999",
           "name": "Denis"
         },
         {
           "date": "20 05 2019",
-          "phone_number": "+38099999999",
+          "phone_number": "38099999999",
           "name": "Denis"
         },
         {
           "date": "20 05 2019",
-          "phone_number": "+38099999999",
+          "phone_number": "38099999999",
           "name": "Denis"
         },
         {
           "date": "20 05 2019",
-          "phone_number": "+38099999999",
+          "phone_number": "38099999999",
           "name": "Olga"
         },
         {
           "date": "21 05 2019",
-          "phone_number": "+38099999999",
+          "phone_number": "38099999999",
           "name": "Max"
         }
       ]
@@ -63,11 +63,11 @@
       "id": 4,
       "name": "4",
       "surname": "4",
-      "phone_number": "+38099999999",
+      "phone_number": "38099999999",
       "call_history": [
         {
           "date": "20 05 2019",
-          "phone_number": "+38099999999",
+          "phone_number": "38099999999",
           "name": "Denis"
         }
       ]
@@ -76,11 +76,11 @@
       "id": 5,
       "name": "5",
       "surname": "5",
-      "phone_number": "+38099999999",
+      "phone_number": "38099999999",
       "call_history": [
         {
           "date": "20 05 2019",
-          "phone_number": "+38099999999",
+          "phone_number": "38099999999",
           "name": "Denis"
         }
       ]
@@ -89,11 +89,11 @@
       "id": 6,
       "name": "6",
       "surname": "6",
-      "phone_number": "+38099999999",
+      "phone_number": "38099999999",
       "call_history": [
         {
           "date": "20 05 2019",
-          "phone_number": "+38099999999",
+          "phone_number": "38099999999",
           "name": "Denis"
         }
       ]
@@ -102,11 +102,11 @@
       "id": 7,
       "name": "7",
       "surname": "7",
-      "phone_number": "+38099999999",
+      "phone_number": "38099999999",
       "call_history": [
         {
           "date": "20 05 2019",
-          "phone_number": "+38099999999",
+          "phone_number": "38099999999",
           "name": "Denis"
         }
       ]
@@ -115,28 +115,28 @@
       "id": 8,
       "name": "8",
       "surname": "8",
-      "phone_number": "+38099999999",
+      "phone_number": "38099999999",
       "call_history": []
     },
     {
       "id": 9,
       "name": "9",
       "surname": "9",
-      "phone_number": "+38099999999",
+      "phone_number": "38099999999",
       "call_history": []
     },
     {
       "id": 10,
       "name": "10",
       "surname": "10",
-      "phone_number": "+38099999999",
+      "phone_number": "38099999999",
       "call_history": []
     },
     {
       "id": 11,
       "name": "11",
       "surname": "11",
-      "phone_number": "+38099999999",
+      "phone_number": "38099999999",
       "call_history": []
     }
   ]
