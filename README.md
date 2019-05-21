@@ -1,4 +1,9 @@
-# Front-end Test Task
+# Start JSON Server
+
+json-server --watch db.json
+
+
+#  Task
 
  
 

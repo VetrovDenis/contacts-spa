@@ -1,34 +1,6 @@
 import { CHANGE_CONTACT, LOAD_CONTACTS, ADD_NEW_CONTACT, DELETE_CONTACT } from "../constants/action-types"
 
-const initialState = [
-    {
-        id: 1,
-        name: "Denis",
-        surname: "Vetrov",
-        phone_number: "+38099999999",
-        call_history: [
-            {
-                date: "20 05 2019",
-                phone_number: "+38099999999",
-                name: "Ford"
-            }
-        ]
-    },
-    {
-        id: 2,
-        name: "Steve",
-        surname: "Jobs",
-        phone_number: "+38099999999",
-        call_history: []
-    },
-    {
-        id: 3,
-        name: "Harrison",
-        surname: "Ford",
-        phone_number: "+38099999999",
-        call_history: []
-    }
-]
+const initialState = []
 export default (state = initialState, action) => {
     switch (action.type) {
         case LOAD_CONTACTS:
@@ -41,6 +13,13 @@ export default (state = initialState, action) => {
             return action.contacts
         default:
             return state;
+    }
+}
+
+export const loadContacts = (data) => async (dispatch) => {
+    return {
+        type: LOAD_CONTACTS,
+        data
     }
 }
 
