@@ -20,7 +20,6 @@ class ContactEdit extends React.Component {
         const { location, contacts } = this.props
         const params = new URLSearchParams(location.search);
         const param_id = params.get('id');
-        console.log(param_id)
         if (param_id) {
             let contactToEdit = contacts.find(x => x.id === Number(param_id))
             if (contactToEdit) {
@@ -49,7 +48,7 @@ class ContactEdit extends React.Component {
     }
     render() {
         const { id, name, surname, phone_number, call_history, edit_mode } = this.state
-        const { query_params, deleteContact } = this.props
+        const { deleteContact } = this.props
         return (
             <div className="ContactEdit">
                 <FloatingButton
