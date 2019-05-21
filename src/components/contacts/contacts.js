@@ -6,16 +6,26 @@ import FloatingButton from "../../containers/floating-button/floating-button"
 import './styles.css';
 
 class Contacts extends React.Component {
+    state = {
+        current_page: 1,
+        contactsToShow: []
+    }
     componentDidMount() {
+        //initialize pagination 
+        const contactsToShow = this.props.contacts
+        const contacts_per_page = 1;                                          //amount of elements to show on 1 page
         const params = new URLSearchParams(this.props.location.search);
-        const page = params.get('page');
-        console.log(page)
+        const page = Number(params.get('page'));
+        const maximumPage = Math.ceil(contactsToShow.length / contacts_per_page);
+        const current_page = page && page > 0 ? page <= maximumPage ? page : maximumPage : 1;
+        this.setState({ current_page })
+        this.setState({ contactsToShow: contactsToShow.splice((current_page - 1) * contacts_per_page, contacts_per_page) })
     }
     render() {
-        const { contacts } = this.props
+        const { contactsToShow } = this.state
         return (
             <div className="Contacts" >
-                <ContactTable contacts={contacts} />
+                <ContactTable contacts={contactsToShow} />
                 <FloatingButton
                     style={{ right: 10, bottom: 10 }}
                     title="Add"
