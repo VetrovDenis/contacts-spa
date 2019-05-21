@@ -6,6 +6,11 @@ import FloatingButton from "../../containers/floating-button/floating-button"
 import './styles.css';
 
 class Contacts extends React.Component {
+    componentDidMount() {
+        const params = new URLSearchParams(this.props.location.search);
+        const page = params.get('page');
+        console.log(page)
+    }
     render() {
         const { contacts } = this.props
         return (

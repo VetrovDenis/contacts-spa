@@ -27,7 +27,7 @@ render(
     <Provider store={store}>
         <Router>
             <Route path="/" exact component={App} />
-            <Route path="/contact-edit/:id?" component={ContactEdit} />
+            <Route path="/contact-edit" component={ContactEdit} />
         </Router>
     </Provider>,
     document.getElementById('root')

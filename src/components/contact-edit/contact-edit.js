@@ -17,9 +17,12 @@ class ContactEdit extends React.Component {
         edit_mode: false
     }
     componentDidMount = () => {
-        const { match, contacts } = this.props
-        if (match.params.id) {
-            let contactToEdit = contacts.find(x => x.id === Number(match.params.id))
+        const { location, contacts } = this.props
+        const params = new URLSearchParams(location.search);
+        const param_id = params.get('id');
+        console.log(param_id)
+        if (param_id) {
+            let contactToEdit = contacts.find(x => x.id === Number(param_id))
             if (contactToEdit) {
                 const { id, name, surname, phone_number, call_history } = contactToEdit
                 this.setState({
@@ -28,7 +31,7 @@ class ContactEdit extends React.Component {
                 })
             }
             else {
-                alert(`No contact with id ${match.params.id} found`)
+                alert(`No contact with id ${param_id} found`)
             }
         }
     }
