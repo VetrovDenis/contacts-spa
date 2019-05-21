@@ -89,7 +89,7 @@ class ContactEdit extends React.Component {
                             {call_history.length > 0 ? call_history.map((call, index) => {
                                 const { name, phone_number, date } = call
                                 return (
-                                    <div className="Call-history-line">
+                                    <div key={index} className="Call-history-line">
                                         <p>{name}</p>
                                         <p>{phone_number}</p>
                                         <p>{date}</p>

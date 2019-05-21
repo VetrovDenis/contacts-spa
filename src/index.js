@@ -8,6 +8,7 @@ import thunkMiddleware from 'redux-thunk'
 import rootReducer from './reducers/index'
 import loggerMiddleware from './middleware/logger'
 import './index.css';
+import { initializeContactData } from "./reducers/manage-contact"
 //components
 import App from './components/main/main'
 import ContactEdit from './components/contact-edit/contact-edit'
@@ -22,6 +23,8 @@ const composedEnhancers = compose(
 )
 
 const store = createStore(rootReducer, initialState, composedEnhancers)
+
+store.dispatch(initializeContactData());
 
 render(
     <Provider store={store}>

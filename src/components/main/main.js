@@ -9,12 +9,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Contacts {...this.props} />
+        <Contacts  {...this.props} />
       </div>
     );
   }
 }
-
 
 const mapStateToProps = (state, ownProps) => {
   return {

@@ -14,22 +14,23 @@ class Contacts extends React.Component {
         maximum_page: Math.ceil(this.props.contacts.length / contacts_per_page),
         contactsToShow: [],
     }
-    calculatePagination = (search_url) => {
+    calculatePagination = (search_url, contacts) => {
         const { maximum_page } = this.state
-        const contactsToShow = [...this.props.contacts]
+        const contactsToShow = [...contacts]
         const params = new URLSearchParams(search_url);
         const page = Number(params.get('page'));
         const current_page = page && page > 0 ? page <= maximum_page ? page : maximum_page : 1;
-        console.log({ search_url, page, maximum_page, current_page })
         this.setState({ current_page })
         this.setState({ contactsToShow: contactsToShow.splice((current_page - 1) * contacts_per_page, contacts_per_page) })
     }
     componentDidMount() {
-        this.calculatePagination(this.props.location.search)
+        this.calculatePagination(this.props.location.search, this.props.contacts)
     }
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps.location.search)
-        this.calculatePagination(nextProps.location.search)
+        if (nextProps.location.search !== this.props.location.search ||
+            nextProps.contacts !== this.props.contacts
+        )
+            this.calculatePagination(nextProps.location.search, nextProps.contacts)
     }
     render() {
         const { contactsToShow, current_page, maximum_page } = this.state

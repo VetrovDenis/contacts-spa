@@ -1,6 +1,10 @@
 import { CHANGE_CONTACT, LOAD_CONTACTS, ADD_NEW_CONTACT, DELETE_CONTACT } from "../constants/action-types"
+import urls from "../constants/urls"
+//services
+import { httpGet } from "../services/http";
 
 const initialState = []
+
 export default (state = initialState, action) => {
     switch (action.type) {
         case LOAD_CONTACTS:
@@ -15,12 +19,25 @@ export default (state = initialState, action) => {
             return state;
     }
 }
-
-export const loadContacts = (data) => async (dispatch) => {
+export const loadContacts = (data) => {
     return {
         type: LOAD_CONTACTS,
         data
     }
+}
+export const initializeContactData = () => async dispatch => {
+    let promise = httpGet(
+        urls.contacts
+    );
+    promise.then(
+        result => {
+            dispatch(loadContacts(result.body))
+        },
+        error => {
+            console.log(error)
+        }
+    );
+
 }
 
 export const changeContact = (data) => async (dispatch, getState) => {

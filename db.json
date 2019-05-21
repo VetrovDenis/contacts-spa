@@ -1,17 +1,30 @@
 {
   "contacts": [
-      {
-          "id": 1,
-          "name": "Denis",
-          "surname": "Vetrov",
+    {
+      "id": 1,
+      "name": "Denis",
+      "surname": "Vetrov",
+      "phone_number": "+38099999999",
+      "call_history": [
+        {
+          "date": "20 05 2019",
           "phone_number": "+38099999999",
-          "call_history": [
-              {
-                  "date": "20 05 2019",
-                  "phone_number": "+38099999999",
-                  "name": "Ford"
-              }
-          ]
-      }
+          "name": "Ford"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Max",
+      "surname": "Jameson",
+      "phone_number": "+38099999999",
+      "call_history": [
+        {
+          "date": "20 05 2019",
+          "phone_number": "+38099999999",
+          "name": "Denis"
+        }
+      ]
+    }
   ]
 }
